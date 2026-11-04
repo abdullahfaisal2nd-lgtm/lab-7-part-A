@@ -1,0 +1,6 @@
+#ifndef LAB07_LIBRARY_MENU_H
+#define LAB07_LIBRARY_MENU_H
+
+void showLibraryMenu();
+
+#endif

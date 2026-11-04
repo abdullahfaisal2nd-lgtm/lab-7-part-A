@@ -1,0 +1,26 @@
+#ifndef LAB07_LIBRARY_BOOK_NODE_H
+#define LAB07_LIBRARY_BOOK_NODE_H
+
+#include <string>
+
+struct BookNode
+{
+    int bookID;
+    std::string title;
+    std::string author;
+    int borrowerID;
+    std::string borrowerName;
+    BookNode* left;
+    BookNode* right;
+
+    BookNode(int id, const std::string& bookTitle,
+             const std::string& bookAuthor, int memberID,
+             const std::string& memberName)
+        : bookID(id), title(bookTitle), author(bookAuthor),
+          borrowerID(memberID), borrowerName(memberName),
+          left(nullptr), right(nullptr) {}
+
+    bool IsAvailable() const { return borrowerID == 0; }
+};
+
+#endif

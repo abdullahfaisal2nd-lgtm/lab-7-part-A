@@ -1,0 +1,24 @@
+#include "doubly_linked_list.h"
+#include <iostream>
+
+void DoublyLinkedList::PrintBackward() const
+{
+    std::cout << "\nBorrowing Session (Last to First):\n";
+
+    for (BookNode* node = tail; node != nullptr; node = node->left)
+    {
+        std::cout << "\nBook ID: " << node->bookID << '\n';
+        std::cout << "Title: " << node->title << '\n';
+        std::cout << "Author: " << node->author << '\n';
+        if (node->IsAvailable())
+            std::cout << "Status: Available\n";
+        else
+            std::cout << "Status: Borrowed by " << node->borrowerName
+                      << " (ID: " << node->borrowerID << ")\n";
+        if (node == current)
+            std::cout << " [CURRENT]";
+        std::cout << "-----------------------------\n";
+    }
+
+    std::cout << "Total books: " << Count() << '\n';
+}

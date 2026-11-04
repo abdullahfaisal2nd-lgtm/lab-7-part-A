@@ -1,0 +1,67 @@
+#include "actions.h"
+#include "doubly_linked_list.h"
+#include "input.h"
+#include "menu.h"
+#include <iostream>
+
+void runLibraryManagementSystem()
+{
+    DoublyLinkedList session;
+    int choice;
+
+    do
+    {
+        showLibraryMenu();
+        std::cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            session.PrintCurrent();
+            break;
+        case 2:
+            session.Next();
+            session.PrintCurrent();
+            break;
+        case 3:
+            session.Previous();
+            session.PrintCurrent();
+            break;
+        case 4:
+            session.InsertRight(readBookFromUser());
+            break;
+        case 5:
+            session.InsertAfterCurrent(readBookFromUser());
+            break;
+        case 6:
+        {
+            BookNode* removed = session.RemoveCurrent();
+            if (removed != nullptr)
+            {
+                std::cout << "Removed book: " << removed->title << '\n';
+                delete removed;
+            }
+            else
+                std::cout << "Borrowing session is empty.\n";
+            break;
+        }
+        case 7:
+            session.PrintForward();
+            break;
+        case 8:
+            session.PrintBackward();
+            break;
+        case 9:
+            std::cout << "\nCollection Status\n";
+            std::cout << "Total books: " << session.Count() << '\n';
+            std::cout << (session.IsEmpty() ? "Collection is empty.\n"
+                                             : "Collection is not empty.\n");
+            break;
+        case 10:
+            std::cout << "Exiting Library Management System.\n";
+            break;
+        default:
+            std::cout << "Invalid choice.\n";
+        }
+    } while (choice != 10);
+}

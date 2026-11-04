@@ -1,0 +1,8 @@
+#ifndef LAB07_LIBRARY_INPUT_H
+#define LAB07_LIBRARY_INPUT_H
+
+#include "book_node.h"
+
+BookNode* readBookFromUser();
+
+#endif

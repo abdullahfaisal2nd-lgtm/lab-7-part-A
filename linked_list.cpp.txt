@@ -1,0 +1,33 @@
+#include "doubly_linked_list.h"
+
+DoublyLinkedList::DoublyLinkedList()
+    : head(nullptr), tail(nullptr), current(nullptr), count(0) {}
+
+DoublyLinkedList::~DoublyLinkedList()
+{
+    clear();
+}
+
+void DoublyLinkedList::clear()
+{
+    while (head != nullptr)
+    {
+        current = head;
+        delete RemoveCurrent();
+    }
+}
+
+bool DoublyLinkedList::IsEmpty() const
+{
+    return head == nullptr;
+}
+
+bool DoublyLinkedList::IsNotEmpty() const
+{
+    return head != nullptr;
+}
+
+int DoublyLinkedList::Count() const
+{
+    return count;
+}

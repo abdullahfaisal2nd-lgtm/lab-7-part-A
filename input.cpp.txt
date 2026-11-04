@@ -1,0 +1,36 @@
+#include "input.h"
+#include <iostream>
+#include <limits>
+
+BookNode* readBookFromUser()
+{
+    int bookID;
+    int borrowerID;
+    std::string title;
+    std::string author;
+    std::string borrowerName;
+
+    std::cout << "Book ID: ";
+    std::cin >> bookID;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Book Title: ";
+    std::getline(std::cin, title);
+
+    std::cout << "Author: ";
+    std::getline(std::cin, author);
+
+    std::cout << "Borrower ID (enter 0 if available): ";
+    std::cin >> borrowerID;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    if (borrowerID == 0)
+        borrowerName = "None";
+    else
+    {
+        std::cout << "Borrower Name: ";
+        std::getline(std::cin, borrowerName);
+    }
+
+    return new BookNode(bookID, title, author, borrowerID, borrowerName);
+}

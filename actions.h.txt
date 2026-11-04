@@ -1,0 +1,6 @@
+#ifndef LAB07_LIBRARY_ACTIONS_H
+#define LAB07_LIBRARY_ACTIONS_H
+
+void runLibraryManagementSystem();
+
+#endif

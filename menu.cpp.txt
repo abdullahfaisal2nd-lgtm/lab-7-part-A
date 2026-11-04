@@ -1,0 +1,18 @@
+#include "menu.h"
+#include <iostream>
+
+void showLibraryMenu()
+{
+    std::cout << "\n===== Library Borrowing Session =====\n";
+    std::cout << "1. Display Current Book (Full Details)\n";
+    std::cout << "2. Move to Next Book\n";
+    std::cout << "3. Move to Previous Book\n";
+    std::cout << "4. Add Book at the End (Author + Borrower Details)\n";
+    std::cout << "5. Add Book After Current (Author + Borrower Details)\n";
+    std::cout << "6. Remove Current Book\n";
+    std::cout << "7. Display All Books with Full Details\n";
+    std::cout << "8. Display Books Backward\n";
+    std::cout << "9. Check Status and Total Books\n";
+    std::cout << "10. Exit\n";
+    std::cout << "Enter your choice: ";
+}

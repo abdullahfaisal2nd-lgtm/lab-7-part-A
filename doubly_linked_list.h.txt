@@ -1,0 +1,35 @@
+#ifndef LAB07_LIBRARY_DOUBLY_LINKED_LIST_H
+#define LAB07_LIBRARY_DOUBLY_LINKED_LIST_H
+
+#include "book_node.h"
+
+class DoublyLinkedList
+{
+private:
+    BookNode* head;
+    BookNode* tail;
+    BookNode* current;
+    int count;
+
+    void clear();
+
+public:
+    DoublyLinkedList();
+    ~DoublyLinkedList();
+
+    bool IsEmpty() const;
+    bool IsNotEmpty() const;
+    int Count() const;
+
+    void InsertRight(BookNode* node);
+    void Next();
+    void Previous();
+    void InsertAfterCurrent(BookNode* node);
+    BookNode* RemoveCurrent();
+
+    void PrintCurrent() const;
+    void PrintForward() const;
+    void PrintBackward() const;
+};
+
+#endif

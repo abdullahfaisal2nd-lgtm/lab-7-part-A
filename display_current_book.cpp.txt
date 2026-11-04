@@ -1,0 +1,25 @@
+#include "doubly_linked_list.h"
+#include <iostream>
+
+void DoublyLinkedList::PrintCurrent() const
+{
+    if (current == nullptr)
+    {
+        std::cout << "Borrowing session is empty.\n";
+        return;
+    }
+
+    std::cout << "\nCurrent Book Details\n";
+    std::cout << "Book ID: " << current->bookID << '\n';
+    std::cout << "Title: " << current->title << '\n';
+    std::cout << "Author: " << current->author << '\n';
+
+    if (current->IsAvailable())
+        std::cout << "Status: Available\n";
+    else
+    {
+        std::cout << "Status: Borrowed\n";
+        std::cout << "Borrower ID: " << current->borrowerID << '\n';
+        std::cout << "Borrower Name: " << current->borrowerName << '\n';
+    }
+}

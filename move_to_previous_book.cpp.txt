@@ -1,0 +1,10 @@
+#include "doubly_linked_list.h"
+#include <iostream>
+
+void DoublyLinkedList::Previous()
+{
+    if (current != nullptr && current->left != nullptr)
+        current = current->left;
+    else
+        std::cout << "No previous book.\n";
+}
